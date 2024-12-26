@@ -1,5 +1,5 @@
 br_elementi([], 0).
-br_elementi([X | L1], N) :-
+br_elementi([_ | L1], N) :-
     br_elementi(L1, M),
     N is M + 1.
 
@@ -31,7 +31,7 @@ koja_podniza_poveke_ja_ima(Niza, Podniza1, Podniza2, Resenie) :-
     N1 >= N2,
     !,
     Resenie = Podniza1.
-koja_podniza_poveke_ja_ima(Niza, Podniza1, Podniza2, Resenie) :-
+koja_podniza_poveke_ja_ima(_, _, Podniza2, Resenie) :-
     Resenie = Podniza2.
 
 
