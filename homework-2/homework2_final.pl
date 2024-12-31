@@ -284,6 +284,12 @@ total_time_vo_lista_so_broj([povik(_, Broj2, Dur) | L1], Broj2, Total) :-
 total_time_vo_lista_so_broj([_ | L1], Broj2, Total) :-
     total_time_vo_lista_so_broj(L1, Broj2, Total).
 
+
+total_time_na_broj_so_broj(Broj1, Broj2, Total) :-
+    site_povici_na(Broj1, SiteNaBroj1),
+    total_time_vo_lista_so_broj(SiteNaBroj1, Broj2, Total).
+
+
 % zemi gi site telefonski broevi vo edna lista
 site_telefoni(SiteTelefoni) :-
     findall(Broj, telefon(Broj, _, _, _), SiteTelefoni).
@@ -393,7 +399,7 @@ presmetaj_cena_voznja(From, To, NaKilometar, Result) :-
     shortest_path(From, To, Dist),
     Result is NaKilometar * Dist.
 
-% zemi ja zenata za daden taksi broj
+% zemi ja cenata za daden taksi broj
 cena_za_taksi_broj(Broj, Result) :-
     klient(_, _, _, Uslugi),
     member(usluga(F, T, NaKilometar, datum(_, 12, 2015), Broj), Uslugi),
